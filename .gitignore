@@ -1,0 +1,26 @@
+# ignore this stuff
+strongloop.json
+coverage
+node_modules
+.sonar
+.c9revisions
+.dropbox
+.project
+.settings.xml
+/.settings
+settings
+!settings/mocha.json
+!settings/settings.json
+#public
+/sandbox
+.elasticbeanstalk/
+.nyc_output/
+sampledb/collection/**/reduction
+sampledb/collection/**/view
+sampledb/collection/cb43defb-f406-47c3-90aa-7c4195d519a7/documents/**
+sampledb/collection/46a5dc92-58f8-429d-9339-d4b6eef65ac4/**
+sampledb/collections/*
+terraform/terraform.tfstate*
+terraform/.terraform*
+.terraform.lock.hcl
+.terragrunt-cache
