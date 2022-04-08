@@ -1,4 +1,14 @@
 terraform {
+ 
+  backend "consul" {
+  
+     address = "consul-server.consul:8500"
+     scheme  = "http"
+     path    = "integ/${path_relative_to_include()}/terraform.tfstate"
+     lock = true
+
+ 
+  }
 
   extra_arguments "vars" {
     commands = ["init","plan","refresh"]
