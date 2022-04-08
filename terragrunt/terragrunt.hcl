@@ -10,30 +10,12 @@ terraform {
   }
 }
 
+
 remote_state {
   backend = "consul"
   config = {
     address = "consul-server.consul:8500"
-     scheme  = "http"
-     path    = "integ/${path_relative_to_include()}/terraform.tfstate"
-     lock = true
+    scheme = "http"
+    path = "tfstate/${path_relative_to_include()}/terraform.tfstate"
   }
 }
-
-#generate "backend" {
-#  path = "terraform.tf"
-#  if_exists = "overwrite_terragrunt"
-#  contents = <<EOF
-#terraform {
-#  required_version = ">= 1.1.0"
-#  backend "remote" {
-#    hostname = "app.terraform.io"
-#    organization = "rheosoft"
-#    workspaces {
-#     prefix = "rtdb-${path_relative_to_include()}-"
-#    }
-#}
-#}
-#EOF
-#}
-
