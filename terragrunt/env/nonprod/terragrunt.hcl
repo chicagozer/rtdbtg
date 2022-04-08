@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-    source = "github.com/chicagozer/helloworld//terraform?ref=main"
+    source = "github.com/chicagozer/hellonode//terraform?ref=main"
 }
 
 
