@@ -10,6 +10,16 @@ terraform {
   }
 }
 
+remote_state {
+  backend = "consul"
+  config = {
+    address = "consul-server.consul:8500"
+     scheme  = "http"
+     path    = "integ/${path_relative_to_include()}/terraform.tfstate"
+     lock = true
+  }
+}
+
 #generate "backend" {
 #  path = "terraform.tf"
 #  if_exists = "overwrite_terragrunt"
