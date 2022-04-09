@@ -1,3 +1,1 @@
-inputs = {
-    namespace="nonprod"
-}
+namespace="nonprod"
