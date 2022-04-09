@@ -6,7 +6,7 @@ terraform {
 
     optional_var_files = [
       "${find_in_parent_folders("appversion.tfvars.json", "ignore")}",
-      "${find_in_parent_folders("namespace.hcl", "ignore")}"
+      "${find_in_parent_folders("namespace.tfvars", "ignore")}"
     ]
   }
 }
