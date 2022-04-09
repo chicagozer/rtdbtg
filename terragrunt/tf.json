@@ -1,0 +1,12 @@
+{
+  "locals": [
+    {
+      "tf_version": [
+        {
+          "hellonode": "main",
+          "helloworld": "main"
+        }
+      ]
+    }
+  ]
+}
