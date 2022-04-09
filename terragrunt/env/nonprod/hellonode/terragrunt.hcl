@@ -6,6 +6,6 @@ terraform {
     source = "github.com/chicagozer/hellonode//terraform?ref=main"
 }
 
-inputs {
+inputs = {
     repository = "chicagozer/hellonode"
 }
