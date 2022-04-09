@@ -5,7 +5,3 @@ include {
 terraform {
     source = "github.com/chicagozer/hellonode//terraform?ref=main"
 }
-
-inputs = {
-    repository = "chicagozer/hellonode"
-}
