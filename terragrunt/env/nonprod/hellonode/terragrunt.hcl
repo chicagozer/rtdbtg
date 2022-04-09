@@ -5,8 +5,3 @@ include {
 terraform {
     source = "github.com/chicagozer/hellonode//terraform?ref=main"
 }
-
-
-inputs = {
-    namespace="nonprod"
-}
