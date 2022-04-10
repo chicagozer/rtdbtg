@@ -3,6 +3,7 @@
     {
       "tf_version": [
         {
+          "namespace": "master",
           "hellonode": "main",
           "helloworld": "main"
         }
