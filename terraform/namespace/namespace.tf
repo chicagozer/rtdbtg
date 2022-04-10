@@ -13,7 +13,6 @@ resource "kubernetes_namespace" "namespace" {
 
 
 data "aws_lb" "ingress" {
-  region = var.region
    tags = {
      "elbv2.k8s.aws/cluster" = var.cluster
    }
