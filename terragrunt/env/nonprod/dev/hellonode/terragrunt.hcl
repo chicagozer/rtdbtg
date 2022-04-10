@@ -2,6 +2,10 @@ include {
     path = find_in_parent_folders()
 }
 
+dependencies {
+  paths = ["../namespace"]
+}
+
 terraform {
     source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
 }
