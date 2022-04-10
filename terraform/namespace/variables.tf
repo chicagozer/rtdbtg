@@ -14,6 +14,14 @@ variable "tag" {
    default = "latest"
 }
 
+variable "cluster" {
+   default = "jem-test"
+}
+
+variable "domain" {
+   default = "coxeksdemo.com"
+}
+
 variable "app_version" {
   type = map
   description = "version to deploy"
