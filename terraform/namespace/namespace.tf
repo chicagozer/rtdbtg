@@ -12,12 +12,12 @@ resource "kubernetes_namespace" "namespace" {
 }
 
 
-#data "aws_lb" "ingress" {
-#   count = 0
-#   tags = {
-#     "elbv2.k8s.aws/cluster" = var.cluster
-#   }
-# }
+data "aws_lb" "ingress" {
+   count = 1
+   tags = {
+     "elbv2.k8s.aws/cluster" = var.cluster
+   }
+ }
 
 
 data "aws_route53_zone" "zone" {
