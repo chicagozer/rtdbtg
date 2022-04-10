@@ -27,7 +27,7 @@ data "aws_route53_zone" "zone" {
 
 resource "aws_route53_record" "namespace" {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "${var.namespace}.${data.aws_route53_zone.selected.name}"
+  name    = "${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
 
    alias {
@@ -39,7 +39,7 @@ resource "aws_route53_record" "namespace" {
 
 resource "aws_route53_record" "wildcard" {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "*.${var.namespace}.${data.aws_route53_zone.selected.name}"
+  name    = "*.${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
 
    alias {
