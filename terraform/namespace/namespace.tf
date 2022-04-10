@@ -13,6 +13,7 @@ resource "kubernetes_namespace" "namespace" {
 
 
 data "aws_lb" "ingress" {
+   count = 0
    tags = {
      "elbv2.k8s.aws/cluster" = var.cluster
    }
@@ -26,6 +27,7 @@ data "aws_route53_zone" "zone" {
 
 
 resource "aws_route53_record" "namespace" {
+  count = 0
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
@@ -38,6 +40,7 @@ resource "aws_route53_record" "namespace" {
 }
 
 resource "aws_route53_record" "wildcard" {
+  count = 0
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "*.${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
