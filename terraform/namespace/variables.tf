@@ -14,3 +14,8 @@ variable "tag" {
    default = "latest"
 }
 
+variable "app_version" {
+  type = map
+  description = "version to deploy"
+}
+
