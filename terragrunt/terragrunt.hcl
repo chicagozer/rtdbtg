@@ -8,6 +8,8 @@ terraform {
             "destroy",
             "output"
         ]
+  
+         arguments = [ "-compact-warnings"]
 
         env_vars = {
             TF_PLUGIN_CACHE_DIR = "/tmp/plugins",
