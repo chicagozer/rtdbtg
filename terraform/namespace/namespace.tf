@@ -26,6 +26,7 @@ data "aws_route53_zone" "zone" {
 
 
 resource "aws_route53_record" "namespace" {
+  count = var.enabled
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
@@ -38,13 +39,14 @@ resource "aws_route53_record" "namespace" {
 }
 
 resource "aws_route53_record" "wildcard" {
+  count = var.enabled
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "*.${var.namespace}.${data.aws_route53_zone.zone.name}"
   type    = "A"
 
    alias {
-    name                   = aws_route53_record.namespace.name
-    zone_id                = aws_route53_record.namespace.zone_id
+    name                   = aws_route53_record.namespace[0].name
+    zone_id                = aws_route53_record.namespace[0].zone_id
     evaluate_target_health = true
   }
 }

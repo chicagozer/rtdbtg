@@ -1,2 +1,2 @@
 namespace="prod"
-enabled=0
+enabled=1
