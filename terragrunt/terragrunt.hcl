@@ -1,4 +1,18 @@
 terraform {
+
+   extra_arguments "plugin_dir" {
+        commands = [
+            "init",
+            "plan",
+            "apply",
+            "destroy",
+            "output"
+        ]
+
+        env_vars = {
+            TF_PLUGIN_CACHE_DIR = "/tmp/plugins",
+        }
+    }
  
   extra_arguments "vars" {
 #    commands = ["init","plan","refresh"]
