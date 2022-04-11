@@ -5,7 +5,7 @@ include {
 dependency "namespace" {
   config_path = "../namespace"
    mock_outputs = {
-   acm_certificate = []
+   acm_certificate_arn = ""
   }
 }
 
@@ -14,7 +14,7 @@ terraform {
 }
 
 inputs = {
-  acm_certificate = dependency.namespace.outputs.acm_certificate
+  acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
 }
 
 

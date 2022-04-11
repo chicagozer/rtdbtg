@@ -2,14 +2,10 @@ include {
     path = find_in_parent_folders()
 }
 
-#dependencies {
-#  paths = ["../namespace"]
-#}
-
 dependency "namespace" {
   config_path = "../namespace"
    mock_outputs = {
-   certificate_arn = "temporary-dummy-id"
+   acm_certificate_arn = ""
   }
 }
 
@@ -18,8 +14,9 @@ terraform {
 }
 
 inputs = {
-  certificate_arn = dependency.namespace.outputs.certificate_arn
+  acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
 }
+
 
 locals {
   # Automatically load environment-level variables
