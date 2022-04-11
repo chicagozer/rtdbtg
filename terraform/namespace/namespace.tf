@@ -61,7 +61,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 output "acm_certificate" {
-  value = length(aws_acm_certificate.cert) ? aws_acm_certificate.cert.0.arn : ""
+  value = length(aws_acm_certificate.cert) > 0  ? aws_acm_certificate.cert.0.arn : ""
 }
 
 resource "aws_route53_record" "cert_validation" {
