@@ -29,10 +29,17 @@ terraform {
 
 
 remote_state {
-  backend = "consul"
-  config = {
-    address = "consul-server.consul:8500"
-    scheme = "http"
-    path = "tfstate/${path_relative_to_include()}/terraform.tfstate"
+#  backend = "consul"
+#  config = {
+#    address = "consul-server.consul:8500"
+#    scheme = "http"
+#    path = "tfstate/${path_relative_to_include()}/terraform.tfstate"
+#  }
+backend = "s3"
+config = {
+    bucket         = "coxeksdemo-tfstate"
+    key            = "tfstate/${path_relative_to_include()}/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "coxeksdemo-tfstate"
   }
 }
