@@ -60,7 +60,7 @@ resource "aws_acm_certificate" "cert" {
   #tags = "${local.tags}"
 }
 
-output "acm_certificate" {
+output "acm_certificate_arn" {
   value = length(aws_acm_certificate.cert) > 0  ? aws_acm_certificate.cert.0.arn : ""
 }
 
