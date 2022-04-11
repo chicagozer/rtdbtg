@@ -1,2 +1,2 @@
 namespace="stg"
-enabled=0
+enabled=1
