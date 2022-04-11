@@ -1,3 +1,7 @@
+inputs = {
+ domain = "coxeksdemo.com"
+}
+
 terraform {
 
    extra_arguments "plugin_dir" {

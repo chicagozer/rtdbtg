@@ -50,3 +50,30 @@ resource "aws_route53_record" "wildcard" {
     evaluate_target_health = true
   }
 }
+
+
+resource "aws_acm_certificate" "cert" {
+  count = var.enabled
+  domain_name       = "*.${var.namespace}.${data.aws_route53_zone.zone.name}"
+  validation_method = "DNS"
+
+  #tags = "${local.tags}"
+}
+
+resource "aws_route53_record" "cert_validation" {
+  count = var.enabled
+  name    = "${tolist(aws_acm_certificate.cert[0].domain_validation_options)[0].resource_record_name}"
+  type    = "${tolist(aws_acm_certificate.cert[0].domain_validation_options)[0].resource_record_type}"
+  zone_id = "${data.aws_route53_zone.zone.id}"
+  records = ["${tolist(aws_acm_certificate.cert[0].domain_validation_options)[0].resource_record_value}"]
+  ttl     = 60
+}
+
+resource "aws_acm_certificate_validation" "cert" {
+  count = var.enabled
+  certificate_arn         = "${aws_acm_certificate.cert[0].arn}"
+  validation_record_fqdns = ["${aws_route53_record.cert_validation[0].fqdn}"]
+}
+
+
+
