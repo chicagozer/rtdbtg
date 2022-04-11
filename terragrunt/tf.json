@@ -3,6 +3,7 @@
     {
       "tf_version": [
         {
+          "alb": "master",
           "delegate": "master",
           "namespace": "master",
           "hellonode": "main",
