@@ -61,6 +61,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 output "acm_certificate" {
+  sensitive = true
   value = aws_acm_certificate.cert
 }
 
