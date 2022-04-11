@@ -60,8 +60,8 @@ resource "aws_acm_certificate" "cert" {
   #tags = "${local.tags}"
 }
 
-output "certificate_arn" {
-  value = aws_acm_certificate.cert.*.arn
+output "acm_certificate" {
+  value = aws_acm_certificate.cert
 }
 
 resource "aws_route53_record" "cert_validation" {
