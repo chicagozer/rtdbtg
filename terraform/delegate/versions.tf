@@ -1,6 +1,6 @@
 terraform {
 
-   backend "consul" {}
+   backend "s3" {}
   
 #backend "remote" {
 #    organization = "rheosoft"
