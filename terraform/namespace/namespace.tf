@@ -60,6 +60,10 @@ resource "aws_acm_certificate" "cert" {
   #tags = "${local.tags}"
 }
 
+output "certificate_arn" {
+  value = aws_acm_certificate.cert.*.arn
+}
+
 resource "aws_route53_record" "cert_validation" {
   count = var.enabled
   name    = "${tolist(aws_acm_certificate.cert[0].domain_validation_options)[0].resource_record_name}"
