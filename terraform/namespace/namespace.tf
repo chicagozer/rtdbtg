@@ -61,8 +61,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 output "acm_certificate" {
-  sensitive = true
-  value = aws_acm_certificate.cert
+  value = aws_acm_certificate.cert.count ? aws_acm_certificate.cert.0.arn : ""
 }
 
 resource "aws_route53_record" "cert_validation" {
