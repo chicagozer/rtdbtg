@@ -40,6 +40,7 @@ config = {
     bucket         = "coxeksdemo-tfstate"
     key            = "tfstate/${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-2"
+    encrypt = true
     dynamodb_table = "coxeksdemo-tfstate"
   }
 }
