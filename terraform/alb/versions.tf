@@ -1,7 +1,7 @@
 terraform {
 
-   backend "s3" {}
-  
+  backend "s3" {}
+
   required_providers {
     helm = {
       source  = "hashicorp/helm"

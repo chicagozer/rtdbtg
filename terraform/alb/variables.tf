@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "enabled" {
-   default = 1
+  default = 1
 }
 
 variable "clusterName" {

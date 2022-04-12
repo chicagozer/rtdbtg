@@ -3,27 +3,27 @@ variable "region" {
 }
 
 variable "enabled" {
-   default = 1
+  default = 1
 }
 
 variable "accountId" {
-   default = "fixme"
+  default = "fixme"
 }
 
 variable "accountIdShort" {
-   default = "fixme"
+  default = "fixme"
 }
 
 variable "delegateName" {
-   default = "fixme"
+  default = "fixme"
 }
 
 variable "delegateProfile" {
-   default = "fixme"
+  default = "fixme"
 }
 
 variable "jreVersion" {
-   default = "1.8.0_242"
+  default = "1.8.0_242"
 }
 
 

@@ -3,32 +3,32 @@ variable "region" {
 }
 
 variable "namespace" {
-   default = "nonprod"
+  default = "nonprod"
 }
 
 variable "enabled" {
-   default = 1
+  default = 1
 }
 
 variable "tag" {
-   default = "latest"
+  default = "latest"
 }
 
 variable "cluster" {
-   default = "jem-test"
+  default = "jem-test"
 }
 
 variable "domain" {
-   default = "coxeksdemo.com"
+  default = "coxeksdemo.com"
 }
 
 variable "app_version" {
-  type = map
+  type        = map(any)
   description = "version to deploy"
 }
 
 variable "chart_version" {
-  type = map
+  type        = map(any)
   description = "version to deploy"
 }
 

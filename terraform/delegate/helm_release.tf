@@ -1,7 +1,7 @@
 provider "helm" {
   kubernetes {
-#     config_path = "~/.kube/config"
-    }
+    #     config_path = "~/.kube/config"
+  }
 }
 
 data "aws_secretsmanager_secret" "harness_secret" {
@@ -10,15 +10,15 @@ data "aws_secretsmanager_secret" "harness_secret" {
 
 
 data "aws_secretsmanager_secret_version" "harness_secret_version" {
-  secret_id = "${data.aws_secretsmanager_secret.harness_secret.id}"
+  secret_id = data.aws_secretsmanager_secret.harness_secret.id
 }
 
 resource "helm_release" "delegate" {
-  count = var.enabled
+  count      = var.enabled
   name       = "delegate"
   repository = "https://app.harness.io/storage/harness-download/harness-helm-charts/"
   chart      = "harness-delegate"
-  
+
   set {
     name  = "accountId"
     value = var.accountId
