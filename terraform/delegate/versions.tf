@@ -2,14 +2,6 @@ terraform {
 
    backend "s3" {}
   
-#backend "remote" {
-#    organization = "rheosoft"
-#
-#    workspaces {
-#       name = "helloworld"
-#    }
-#  }
-
   required_providers {
     helm = {
       source  = "hashicorp/helm"
@@ -27,4 +19,3 @@ terraform {
 provider "aws" {
   region = var.region
 }
-~
