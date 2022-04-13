@@ -1,5 +1,6 @@
 inputs = {
   domain = "coxeksdemo.com"
+  aws_account = "015614266771"
 }
 
 terraform {
