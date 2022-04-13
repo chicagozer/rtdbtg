@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "github.com/chicagozer/rtdbtg//terraform/namespace?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/Xtime/harness-tg.git//terraform/namespace?ref=${local.tf_version}"
 }
 
 locals {
