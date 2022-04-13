@@ -22,6 +22,9 @@ data "aws_secretsmanager_secret_version" "newrelic" {
 
 resource "kubernetes_config_map" "newrelic" {
   count = var.enabled
+  depends_on = [
+    kubernetes_namespace.namespace
+  ]
   metadata {
     name = "newrelic-license"
     namespace = var.namespace
