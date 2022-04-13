@@ -11,6 +11,27 @@ resource "kubernetes_namespace" "namespace" {
   }
 }
 
+data "aws_secretsmanager_secret" "newrelic" {
+  name = "newrelic_license"
+}
+
+
+data "aws_secretsmanager_secret_version" "newrelic" {
+  secret_id = data.aws_secretsmanager_secret.newrelic.id
+}
+
+resource "kubernetes_config_map" "newrelic" {
+  metadata {
+    name = "newrelic-license"
+    namespace = kubernetes_namespace.namespace.name
+  }
+
+  data = {
+    license = data.aws_secretsmanager_secret_version.newrelic.secret_string
+  }
+
+}
+
 
 data "aws_lb" "ingress" {
   tags = {
