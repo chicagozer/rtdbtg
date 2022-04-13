@@ -10,7 +10,8 @@ dependency "namespace" {
 }
 
 terraform {
-  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
+#  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
 }
 
 inputs = {
