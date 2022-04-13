@@ -24,7 +24,7 @@ resource "kubernetes_config_map" "newrelic" {
   count = var.enabled
   metadata {
     name = "newrelic-license"
-    namespace = kubernetes_namespace.namespace.0.name
+    namespace = var.namespace
   }
 
   data = {
