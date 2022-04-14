@@ -8,7 +8,8 @@
           "namespace": "master",
           "hellonode": "main",
           "hellonode-canary": "main",
-          "helloworld": "main"
+          "helloworld": "main",
+          "hellonode-ingress": "main"
         }
       ]
     }

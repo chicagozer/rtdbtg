@@ -2,10 +2,6 @@ include {
   path = find_in_parent_folders()
 }
 
-dependencies {
-  paths = ["../hellonode-ingress"]
-}
-
 dependency "namespace" {
   config_path = "../namespace"
   mock_outputs = {
@@ -15,12 +11,12 @@ dependency "namespace" {
 
 terraform {
   #  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
-  source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-tg.git//terraform/ingress?ref=${local.tf_version}"
 }
 
 inputs = {
   acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
-  tf_module           = local.tf_module
+  service = "hellonode"
 }
 
 

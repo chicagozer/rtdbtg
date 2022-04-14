@@ -2,6 +2,10 @@ include {
   path = find_in_parent_folders()
 }
 
+dependencies {
+  paths = ["../hellonode-ingress"]
+}
+
 dependency "namespace" {
   config_path = "../namespace"
   mock_outputs = {
