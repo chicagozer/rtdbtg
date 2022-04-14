@@ -6,7 +6,7 @@ dependencies {
   paths = ["../namespace"]
 }
 
-inputs {
+inputs =  {
   enabled = false
 }
 

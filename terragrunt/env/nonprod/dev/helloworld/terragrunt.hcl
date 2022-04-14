@@ -10,7 +10,7 @@ terraform {
   source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
 }
 
-inputs {
+inputs =  {
   enabled = false
 }
 
