@@ -5,25 +5,32 @@ inputs = {
 
 terraform {
 
-  extra_arguments "plugin_dir" {
-    commands = [
-      "init",
-      "plan",
-      "apply",
-      "destroy",
-      "output"
-    ]
-
-    arguments = ["-compact-warnings"]
-
-    env_vars = {
-      TF_PLUGIN_CACHE_DIR = "/tmp/plugins",
-    }
-  }
+#  extra_arguments "plugin_dir" {
+#    commands = [
+#      "init",
+#      "plan",
+#      "apply",
+#      "refresh",
+#      "destroy",
+#      "output"
+#    ]
+#
+#    arguments = ["-compact-warnings"]
+#
+#   env_vars = {
+#     TF_PLUGIN_CACHE_DIR = "/tmp/plugins",
+#   }
+# }
 
   extra_arguments "vars" {
     #    commands = ["init","plan","refresh"]
     commands = get_terraform_commands_that_need_vars()
+
+     env_vars = {
+      TF_PLUGIN_CACHE_DIR = "/tmp/plugins",
+    }
+
+    arguments = ["-compact-warnings"]
 
     optional_var_files = [
       "${find_in_parent_folders("appversion.tfvars.json", "ignore")}",

@@ -1,5 +1,6 @@
 resource "kubernetes_ingress" "canary" {
   metadata {
+    namespace = var.namespace
     name = var.service
     annotations = {
       "alb.ingress.kubernetes.io/certificate-arn" = var.acm_certificate_arn
