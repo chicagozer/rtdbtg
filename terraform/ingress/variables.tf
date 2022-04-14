@@ -11,7 +11,7 @@ variable "groupName" {
 }
 
 variable "weight" {
-  default = [0, 100]
+  default = [100, 0]
 }
 
 variable "namespace" {
