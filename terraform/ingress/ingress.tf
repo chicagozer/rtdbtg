@@ -1,7 +1,7 @@
 resource "kubernetes_ingress_v1" "canary" {
   metadata {
     namespace = var.namespace
-    name = var.service
+    name      = var.service
     annotations = {
       "alb.ingress.kubernetes.io/certificate-arn" = var.acm_certificate_arn
       "alb.ingress.kubernetes.io/group.name"      = var.groupName
@@ -30,18 +30,57 @@ resource "kubernetes_ingress_v1" "canary" {
 
   spec {
     rule {
+      host = "${var.service}.${var.namespace}.${var.domain}"
       http {
         path {
           backend {
             service {
               name = "forward-multiple-tg"
               port {
-                 name = "use-annotation"
-                 }
+                name = "use-annotation"
               }
+            }
           }
 
-          path = "/"
+          path      = "/"
+          path_type = "Prefix"
+        }
+
+      }
+    }
+    rule {
+      host = "${var.service}-canary.${var.namespace}.${var.domain}"
+      http {
+        path {
+          backend {
+            service {
+              name = "${var.service}-canary"
+              port {
+                name = "http"
+              }
+            }
+          }
+
+          path      = "/"
+          path_type = "Prefix"
+        }
+
+      }
+    }
+    rule {
+      host = "${var.service}-release.${var.namespace}.${var.domain}"
+      http {
+        path {
+          backend {
+            service {
+              name = var.service
+              port {
+                name = "http"
+              }
+            }
+          }
+
+          path      = "/"
           path_type = "Prefix"
         }
 
