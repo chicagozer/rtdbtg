@@ -11,7 +11,7 @@ variable "groupName" {
 }
 
 variable "weight" {
- default = [0,100]
+  default = [0, 100]
 }
 
 variable "namespace" {
@@ -23,5 +23,5 @@ variable "service" {
 variable "domain" {
 }
 
-variable acm_certificate_arn {
+variable "acm_certificate_arn" {
 }
