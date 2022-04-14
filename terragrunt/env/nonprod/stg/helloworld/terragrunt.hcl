@@ -7,7 +7,7 @@ dependencies {
 }
 
 terraform {
-  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-helloworld.git//terraform?ref=${local.tf_version}"
 }
 
 locals {

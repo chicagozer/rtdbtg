@@ -1,5 +1,5 @@
 inputs = {
-  domain = "coxeksdemo.com"
+  domain      = "coxeksdemo.com"
   aws_account = "015614266771"
 }
 
