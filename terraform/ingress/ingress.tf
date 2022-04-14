@@ -1,4 +1,4 @@
-resource "kubernetes_ingress" "canary" {
+resource "kubernetes_ingress_v1" "canary" {
   metadata {
     namespace = var.namespace
     name = var.service
@@ -33,11 +33,16 @@ resource "kubernetes_ingress" "canary" {
       http {
         path {
           backend {
-            service_name = "forward-multiple-tg"
-            service_port = "use-annotation"
+            service {
+              name = "forward-multiple-tg"
+              port {
+                 name = "use-annotation"
+                 }
+              }
           }
 
-          path = "/*"
+          path = "/"
+          path_type = "Prefix"
         }
 
       }
