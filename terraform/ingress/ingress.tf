@@ -4,7 +4,7 @@ resource "kubernetes_ingress_v1" "canary" {
     ignore_changes = [
       # Ignore changes to tags, e.g. because a management agent
       # updates these based on some ruleset managed elsewhere.
-      metadata.annotations["alb.ingress.kubernetes.io/actions.forward-multiple-tg"],
+      metadata["annotations"]["alb.ingress.kubernetes.io/actions.forward-multiple-tg"],
     ]
   }
 
