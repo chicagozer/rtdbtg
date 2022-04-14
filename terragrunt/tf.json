@@ -9,7 +9,7 @@
           "hellonode": "main",
           "hellonode-canary": "main",
           "helloworld": "main",
-          "hellonode-ingress": "main"
+          "hellonode-ingress": "master"
         }
       ]
     }
