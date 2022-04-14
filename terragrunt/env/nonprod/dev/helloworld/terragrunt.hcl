@@ -10,6 +10,10 @@ terraform {
   source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
 }
 
+inputs {
+  enabled = false
+}
+
 locals {
   # Automatically load environment-level variables
   tf_vars = read_terragrunt_config(find_in_parent_folders("tf.json"))

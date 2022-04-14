@@ -6,6 +6,10 @@ dependencies {
   paths = ["../namespace"]
 }
 
+inputs {
+  enabled = false
+}
+
 terraform {
   source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
 }
