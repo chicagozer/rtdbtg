@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "github.com/chicagozer/rtdbtg//terraform/delegate?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-tg.git//terraform/delegate?ref=${local.tf_version}"
 }
 
 locals {
@@ -16,6 +16,7 @@ locals {
 }
 
 inputs = {
+  enabled = 0
   accountId       = "4GuaSF49R9G7-5XRHSC8cA"
   accountIdShort  = "guasfr"
   delegateName    = "eksdemo"

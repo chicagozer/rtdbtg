@@ -3,7 +3,7 @@ include {
 }
 
 dependencies {
-  paths = ["../namespace"]
+  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../namespace"]
 }
 
 terraform {

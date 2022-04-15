@@ -10,13 +10,12 @@ dependency "namespace" {
 }
 
 terraform {
-  #  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
   source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-tg.git//terraform/ingress?ref=${local.tf_version}"
 }
 
 inputs = {
   acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
-  service = "hellonode"
+  service = "hellonodex"
 }
 
 

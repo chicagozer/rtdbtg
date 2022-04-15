@@ -3,7 +3,7 @@ include {
 }
 
 dependencies {
-  paths = ["../hellonode-ingress"]
+  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../hellonode-ingress"]
 }
 
 dependency "namespace" {
@@ -14,7 +14,6 @@ dependency "namespace" {
 }
 
 terraform {
-  #  source = "github.com/chicagozer/${local.tf_module}//terraform?ref=${local.tf_version}"
   source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
 }
 
