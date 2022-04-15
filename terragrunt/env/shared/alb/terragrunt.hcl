@@ -2,12 +2,8 @@ include {
   path = find_in_parent_folders()
 }
 
-dependencies {
-  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../namespace"]
-}
-
 terraform {
-  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-helloworld.git//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-tg.git//terraform/alb?ref=${local.tf_version}"
 }
 
 locals {
@@ -17,4 +13,8 @@ locals {
   tf_version = "${local.tf_vars.locals.tf_version[0]["${local.tf_module}"]}"
   tf_module  = "${basename(get_terragrunt_dir())}"
 
+}
+
+inputs = {
+  clusterName = "jem-test"
 }

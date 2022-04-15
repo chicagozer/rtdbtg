@@ -13,13 +13,13 @@ dependencies {
   paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../hellonode-ingress"]
 }
 
-
 terraform {
   source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
 }
 
 inputs = {
   acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
+  tf_module           = local.tf_module
 }
 
 

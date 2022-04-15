@@ -2,12 +2,8 @@ include {
   path = find_in_parent_folders()
 }
 
-dependencies {
-  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../namespace"]
-}
-
 terraform {
-  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-helloworld.git//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/Xtime/harness-tg.git//terraform/namespace?ref=${local.tf_version}"
 }
 
 locals {

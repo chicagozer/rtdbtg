@@ -1,0 +1,17 @@
+{
+  "locals": [
+    {
+      "tf_version": [
+        {
+          "alb": "master",
+          "delegate": "master",
+          "namespace": "master",
+          "hellonode": "main",
+          "hellonode-canary": "main",
+          "helloworld": "main",
+          "hellonode-ingress": "master"
+        }
+      ]
+    }
+  ]
+}

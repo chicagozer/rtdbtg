@@ -2,13 +2,21 @@ include {
   path = find_in_parent_folders()
 }
 
-dependencies {
-  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../namespace"]
+dependency "namespace" {
+  config_path = "../namespace"
+  mock_outputs = {
+    acm_certificate_arn = ""
+  }
 }
 
 terraform {
-  source = "git::ssh://git@ghe.coxautoinc.com/XTime/harness-helloworld.git//terraform?ref=${local.tf_version}"
+  source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
 }
+
+inputs = {
+  acm_certificate_arn = dependency.namespace.outputs.acm_certificate_arn
+}
+
 
 locals {
   # Automatically load environment-level variables

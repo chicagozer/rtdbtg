@@ -2,17 +2,16 @@ include {
   path = find_in_parent_folders()
 }
 
+dependencies {
+  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../hellonode-ingress"]
+}
+
 dependency "namespace" {
   config_path = "../namespace"
   mock_outputs = {
     acm_certificate_arn = ""
   }
 }
-
-dependencies {
-  paths = get_env("TG_IGNORE_DEPENDENCIES","false") == "true" ? [] : ["../hellonode-ingress"]
-}
-
 
 terraform {
   source = "git::ssh://git@ghe.coxautoinc.com/DMS/harness-hellonode.git//terraform?ref=${local.tf_version}"
